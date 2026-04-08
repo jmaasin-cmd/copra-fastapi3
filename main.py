@@ -64,7 +64,8 @@ def predict(data: InputData):
             "KNN": label_encoder.inverse_transform(knn_model.predict(input_scaled))[0],
             "Logistic Regression": label_encoder.inverse_transform(log_model.predict(input_scaled))[0]
         }
-
+        
+        print(f"ML Result: {results}")
         return {
             "input": {
                 "Moisture": data.moisture,
