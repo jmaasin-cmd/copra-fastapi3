@@ -67,6 +67,7 @@ def predict(data: InputData):
         }
         
         print(f"ML Result: {results}")
+        
         return {
             "input": {
                 "Moisture": data.moisture,
