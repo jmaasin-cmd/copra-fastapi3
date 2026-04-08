@@ -53,6 +53,7 @@ def predict(data: InputData):
             "B_value": data.b
         }])[["Moisture", "Temperature", "R_value", "G_value", "B_value"]]
 
+        
         # Apply scaler
         input_scaled = scaler.transform(input_data)
 
