@@ -44,13 +44,14 @@ def predict(data: InputData):
 
     try:
         # Prepare input (MATCH TRAINING ORDER)
-        input_data = np.array([[
-            data.moisture,
-            data.temperature,
-            data.r,
-            data.g,
-            data.b
-        ]])
+        input_data = pd.DataFrame([{
+            "Moisture": data.moisture,
+            "Temperature": data.temperature,
+            "R_value": data.r,
+            "G_value": data.g,
+            "B_value": data.b
+        }])[["Moisture", "Temperature", "R_value", "G_value", "B_value"]]
+                ]])
 
         # Apply scaler
         input_scaled = scaler.transform(input_data)
