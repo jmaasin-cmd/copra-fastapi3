@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
+import pandas as pd   # ✅ ADD THIS
 
 app = FastAPI()
 
@@ -43,7 +44,7 @@ def home():
 def predict(data: InputData):
 
     try:
-        # Prepare input (MATCH TRAINING ORDER)
+        # ✅ FIXED input (no extra brackets)
         input_data = pd.DataFrame([{
             "Moisture": data.moisture,
             "Temperature": data.temperature,
@@ -51,7 +52,6 @@ def predict(data: InputData):
             "G_value": data.g,
             "B_value": data.b
         }])[["Moisture", "Temperature", "R_value", "G_value", "B_value"]]
-                ]])
 
         # Apply scaler
         input_scaled = scaler.transform(input_data)
